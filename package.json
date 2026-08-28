@@ -1,0 +1,20 @@
+{
+  "name": "mmaxx45-portfolio",
+  "version": "1.0.0",
+  "description": "Max (mmaxx45) - Self-ironic Developer Portfolio & Server Fleet",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "tailwindcss": "^4.3.3",
+    "vite": "^8.2.2"
+  },
+  "dependencies": {
+    "canvas-confetti": "^1.9.4",
+    "lucide": "^1.35.0"
+  }
+}

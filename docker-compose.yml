@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  # Max's Portfolio Website with Caddy
+  portfolio:
+    build: .
+    container_name: mmaxx-portfolio
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    depends_on:
+      - naas
+
+  # No-as-a-Service (NaaS) - German & English Rejections
+  naas:
+    image: node:20-alpine
+    container_name: mmaxx-naas
+    restart: unless-stopped
+    working_dir: /app
+    ports:
+      - "3005:3000"
+    command: >
+      sh -c "if [ ! -f package.json ]; then
+               git clone https://github.com/mmaxx45/no-as-a-service.git . && npm install;
+             fi && npm start"
