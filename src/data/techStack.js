@@ -23,14 +23,6 @@ export const techStack = {
       level: 'Visuell',
       honestQuote: 'Ich weiß, keine Programmiersprachen, aber die Liste sah sonst so kurz aus.',
       stats: 'Flexbox • Grid • 100vh Bugs'
-    },
-    {
-      name: 'Bash / Shell',
-      icon: 'cpu',
-      color: '#4EAA25',
-      level: 'Nachtschicht',
-      honestQuote: 'curl | bash – was soll schon schiefgehen?',
-      stats: 'sudo rm -rf / Vermeider'
     }
   ],
   tools: [

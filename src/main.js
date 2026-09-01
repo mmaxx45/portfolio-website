@@ -684,7 +684,7 @@ const commands = {
   `,
   stack: () => `
     <div class="text-slate-300">
-      Sprachen: Java, Python, HTML5, CSS3, Bash<br/>
+      Sprachen: Java, Python, HTML5, CSS3<br/>
       Tools: Debian 12, Docker, Caddy, NeoForge, PaperMC, Gradle, PostgreSQL, Git
     </div>
   `,
@@ -778,7 +778,7 @@ const rebootOverlay = document.getElementById('rebootOverlay');
 const rebootLogsEl = document.getElementById('rebootTerminalLogs');
 
 const kernelBootLogs = [
-  "[  0.000000] Linux version 6.6.0-debian-amd64 (max@hetzner) (gcc 12.2.0)",
+  "[  0.000000] Linux version 6.6.0-debian-amd64 (max@debian) (gcc 12.2.0)",
   "[  0.084120] Command line: BOOT_IMAGE=/vmlinuz-6.6.0-debian root=UUID=7f8e9a2b quiet",
   "[  0.192340] x86/fpu: Supporting XSAVE feature 0x001: 'x87 floating point registers'",
   "[  0.310920] RAM Check: 16384 MB total, 14200 MB reserved for Java JVM & Minecraft",
