@@ -584,7 +584,7 @@ const commands = {
       <div>  <span class="text-amber-400 font-bold">server / servers</span> - Zeigt den aktuellen Status aller Server-Nodes</div>
       <div>  <span class="text-amber-400 font-bold">projects</span>        - Listet alle Repositories auf</div>
       <div>  <span class="text-amber-400 font-bold">stack</span>           - Zeigt den Tech Stack</div>
-      <div>  <span class="text-amber-400 font-bold">coffee</span>          - Kocht virtuellen Espresso für die JVM</div>
+      <div>  <span class="text-amber-400 font-bold">chips</span>           - Reißt eine Tüte Funny-Frisch für die JVM auf</div>
       <div>  <span class="text-amber-400 font-bold">reboot</span>          - Führt den Notfall-Reboot aus</div>
       <div>  <span class="text-amber-400 font-bold">whoami</span>          - Wer bin ich?</div>
       <div>  <span class="text-amber-400 font-bold">clear</span>           - Leert das Terminal</div>
@@ -686,14 +686,14 @@ const commands = {
   stack: () => `
     <div class="text-slate-300">
       Sprachen: Java, Python, HTML5, CSS3<br/>
-      Tools: Debian 12, Docker, Caddy, NeoForge, PaperMC, Gradle, PostgreSQL, Git
+      Tools: Debian 12, Docker, Caddy, Fabric, Gradle, PostgreSQL, Git
     </div>
   `,
-  coffee: () => {
+  chips: () => {
     playBeep(880, 'sine', 0.2);
     return `
       <div class="text-amber-400 font-mono">
-        ☕ 1x frischer Espresso serviert! Java Virtual Machine Garbage Collector beruhigt sich.
+        🥔 1x Funny-Frisch Peperoni aufgerissen! Java Virtual Machine Garbage Collector räumt die Krümel weg.
       </div>
     `;
   },
@@ -788,7 +788,7 @@ const kernelBootLogs = [
   "[  0.920150] Spawning 27 idle containers (and 2 actually useful ones)...",
   "[  1.104200] Initializing Caddy Edge Gateway Reverse Proxy (Auto TLS)...",
   "[  1.320100] Applying motto: 'Reboot und alles wird gut'...",
-  "[  1.580210] Restoring memory state & flushing coffee reservoirs...",
+  "[  1.580210] Restoring memory state & refilling chips reservoirs...",
   "[  1.890000] System state restored. Everything is fine now."
 ];
 

@@ -51,7 +51,7 @@ export const projects = [
     metrics: {
       sinn: '88%',
       spammerAbwehr: '100%',
-      koffeinPegel: 'Hoch'
+      chipsVorrat: 'Kritisch'
     },
     status: 'Wachsam'
   },
