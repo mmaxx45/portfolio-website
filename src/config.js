@@ -115,7 +115,7 @@ export const config = {
 
   // Homelab & Self-Host Lab stats & config
   homelab: {
-    stack: 'Debian 12 / Docker / Caddy / Beszel',
+    stack: 'Debian / Docker / Caddy / Beszel',
     serverType: 'VPS & Bare-Metal Multi-Cluster',
     uptimeEstimate: '99.9%',
   },
@@ -124,9 +124,9 @@ export const config = {
   // Zero server IPs exposed anywhere!
   dummyServers: [
     {
-      id: 'hetzner-cpx',
-      name: 'Hetzner CPX21 („Der Geldverbrenner“)',
-      role: 'Debian 12 • Docker Host • Prod',
+      id: 'netcup-root',
+      name: 'netcup Root-Server („Der Geldverbrenner“)',
+      role: 'Debian • Docker Host • Prod',
       location: 'Nürnberg 🇩🇪',
       status: 'up',
       uptimePercent: 99.98,
@@ -138,12 +138,12 @@ export const config = {
       storageDetail: '180 GB (110 GB Docker Logs)',
       uptimeDays: 342,
       honestNote: 'Bloß nicht neustarten, keiner weiß warum es läuft.',
-      badges: ['Debian 12', 'Docker', 'Caddy', 'Java 21']
+      badges: ['Debian', 'Docker', 'Caddy', 'Java 21']
     },
     {
       id: 'vps-2am',
       name: 'VPS-02 („Der 2-Uhr-Nachts-Server“)',
-      role: 'Debian 12 • Experimental Lab & NaaS',
+      role: 'Debian • Experimental Lab & NaaS',
       location: 'Falkenstein 🇩🇪',
       status: 'up',
       uptimePercent: 98.42,
@@ -160,7 +160,7 @@ export const config = {
     {
       id: 'gaming-node',
       name: 'Lab-Node („Experimental Sandbox“)',
-      role: 'Debian 12 • Docker Swarm & Lab',
+      role: 'Debian • Docker Swarm & Lab',
       location: 'Helsinki 🇫🇮',
       status: 'warning',
       uptimePercent: 96.80,
@@ -172,7 +172,7 @@ export const config = {
       storageDetail: '124 / 200 GB',
       uptimeDays: 12,
       honestNote: '0 Container aktiv, aber volle 16 GB RAM reserviert („man weiß ja nie“).',
-      badges: ['Debian 12', 'Docker', 'Caddy', 'Node.js']
+      badges: ['Debian', 'Docker', 'Caddy', 'Node.js']
     },
     {
       id: 'caddy-gateway',

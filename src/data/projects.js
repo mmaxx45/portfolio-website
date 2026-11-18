@@ -74,7 +74,7 @@ export const projects = [
     url: 'https://github.com/mmaxx45',
     description: 'Verteilte Server-Infrastruktur mit Caddy Edge Proxies, Beszel Agent Monitoring und Garage S3 Storage.',
     honestComment: 'Wird bevorzugt um 2 Uhr nachts umgebaut, damit am nächsten Morgen wieder genau dasselbe wie vorher funktioniert.',
-    tech: ['Debian 12', 'Docker', 'Caddy', 'Beszel', 'Garage S3'],
+    tech: ['Debian', 'Docker', 'Caddy', 'Beszel', 'Garage S3'],
     metrics: {
       sinn: '100%',
       nodeCount: '8 Server',

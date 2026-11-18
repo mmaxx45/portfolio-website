@@ -5,7 +5,7 @@ export const excuses = [
   "Die Java Virtual Machine hat kurz meditiert (Garbage Collection läuft).",
   "Debian hat den Port nicht freigegeben, weil es 02:30 Uhr ist und der Kernel schlafen will.",
   "Eigentlich lief der Code, aber jemand hat ein Semikolon schief angeguckt.",
-  "Der Docker Container hat Heimweh nach dem vorherigen Hetzner-Cluster.",
+  "Der Docker Container hat Heimweh nach dem vorherigen IONOS-Cluster.",
   "DNS braucht 24 Stunden zum Propagieren. Komm morgen wieder.",
   "Ein verwaister Docker Build Cache hat gerade die SSD gefüllt.",
   "Ich habe den Stack Overflow Post von 2012 exakt so kopiert, keine Ahnung warum es fehlschlägt.",

@@ -163,7 +163,7 @@ const typingLines = [
   "Zocke in meiner Freizeit gerne Minecraft...",
   "Baue Dinge, die keiner braucht – aber mit Leidenschaft.",
   "Debugge um 02:00 Uhr nachts warum mein Code eigentlich läuft...",
-  "Kaufe neue Hetzner-Server für Projekte, die nie fertig werden...",
+  "Kaufe neue netcup-Server für Projekte, die nie fertig werden...",
   "Autor des deutschen No-as-a-Service Forks (/nein)...",
   "Reboot und alles wird gut."
 ];
@@ -616,7 +616,7 @@ const commands = {
   `,
   '/gamemode creative': () => {
     playMinecraftDing();
-    return `<div class="text-emerald-400 font-bold">🎮 [Server]: Spielmodus wurde auf KREATIV gesetzt. Unendlich viel Server-RAM und Hetzner-Budget verfügbar!</div>`;
+    return `<div class="text-emerald-400 font-bold">🎮 [Server]: Spielmodus wurde auf KREATIV gesetzt. Unendlich viel Server-RAM und Budget für netcup, IONOS, BERO HOST, ultravps.eu und Exception Host verfügbar!</div>`;
   },
   '/give chips 64': () => {
     playBeep(1000, 'triangle', 0.2);
@@ -691,7 +691,7 @@ const commands = {
   stack: () => `
     <div class="text-slate-300">
       Sprachen: Java, Python, HTML5, CSS3<br/>
-      Tools: Debian 12, Docker, Caddy, Fabric, Gradle, PostgreSQL, Git
+      Tools: Debian, Docker, Caddy, Fabric, Gradle, PostgreSQL, Git
     </div>
   `,
   chips: () => {
