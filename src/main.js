@@ -602,9 +602,10 @@ const commands = {
   minecraft: () => `
     <div class="text-emerald-300 space-y-1">
       <div>⛏️ <strong>Mein Minecraft Profile:</strong></div>
-      <div>  • Modpack: All the Mods 10 Sky (NeoForge 1.21.1)</div>
-      <div>  • Server: PaperMC Dedicated Game Node</div>
-      <div>  • Status: Zocke ich in der Freizeit extrem gerne!</div>
+      <div>  • Server: Eigener SMP für 8 Leute, Fabric 26.3, VPS in Frankfurt, Java 25</div>
+      <div>  • Modpack: Privat und clientseitig selbst zusammengebaut. Läuft. Meistens.</div>
+      <div>  • Rendering: Voxy für LOD, Sichtweite bis zum Horizont, RAM bis zum Anschlag</div>
+      <div>  • Highlight: Ein Warden-Mobswitch mit ca. 70 Wardens pro Spieler. Bleibt so.</div>
       <div>  • Versuche: <span class="text-amber-400">/gamemode creative</span> oder <span class="text-amber-400">/give coffee 64</span></div>
     </div>
   `,
