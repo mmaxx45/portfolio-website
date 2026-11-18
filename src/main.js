@@ -567,6 +567,10 @@ const clearTerminalBtn = document.getElementById('clearTerminalBtn');
 const commandHistory = [];
 let historyIndex = -1;
 
+function escapeHtml(str) {
+  return String(str).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+}
+
 function appendTerminalLine(html) {
   if (!terminalOutput) return;
   const line = document.createElement('div');
@@ -730,14 +734,14 @@ async function handleTerminalSubmit(cmdText) {
   commandHistory.push(cmdText);
   historyIndex = commandHistory.length;
 
-  appendTerminalLine(`<div class="text-slate-400"><span class="text-emerald-400 font-bold">guest@max:~$</span> ${cmdText}</div>`);
+  appendTerminalLine(`<div class="text-slate-400"><span class="text-emerald-400 font-bold">guest@max:~$</span> ${escapeHtml(cmdText)}</div>`);
 
   if (commands[lower] || commands[cleanCmd]) {
     const handler = commands[lower] || commands[cleanCmd];
     const result = typeof handler === 'function' ? await handler() : handler;
     if (result) appendTerminalLine(result);
   } else {
-    appendTerminalLine(`<div class="text-red-400">Befehl nicht gefunden: '${cleanCmd}'. Tippe <span class="text-emerald-400">help</span> für Optionen.</div>`);
+    appendTerminalLine(`<div class="text-red-400">Befehl nicht gefunden: '${escapeHtml(cleanCmd)}'. Tippe <span class="text-emerald-400">help</span> für Optionen.</div>`);
   }
 
   playBeep(400, 'square', 0.04, 0.05);
