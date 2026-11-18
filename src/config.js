@@ -18,24 +18,6 @@ export const config = {
   // Per-server metadata (keyed by Beszel system name)
   // Enriches live Beszel data with location, RAM, disk size, containers, and usecase
   serverMeta: {
-    'crafty': {
-      location: 'Frankfurt 🇩🇪',
-      ramTotal: 32,
-      diskTotal: 200,
-      containers: 3,
-      usecase: 'Gameserver Controller (Crafty)',
-      honestNote: 'Java gönnt sich Dickste',
-      tags: ['Docker', 'Crafty', 'Java', 'Gameserver'],
-    },
-    'git': {
-      location: 'Frankfurt 🇩🇪',
-      ramTotal: 8,
-      diskTotal: 100,
-      containers: 2,
-      usecase: 'Gitea',
-      honestNote: 'Sind eh keine Repos drauf',
-      tags: ['Docker', 'Gitea', 'Git'],
-    },
     'mail.mlehrke.de': {
       location: 'Nürnberg 🇩🇪',
       ramTotal: 8,
@@ -54,6 +36,15 @@ export const config = {
       honestNote: 'Kampf den Streamingdiensten!',
       tags: ['Docker', 'Jellyfin', 'Media'],
     },
+    'minecraft': {
+      location: 'Frankfurt 🇩🇪',
+      ramTotal: 8,
+      diskTotal: 250,
+      containers: 1,
+      usecase: 'Minecraft SMP (Fabric)',
+      honestNote: 'Java gönnt sich Dickste',
+      tags: ['Java 25', 'Fabric', 'Gameserver'],
+    },
     'portfolio': {
       location: 'Berlin/TXL 🇩🇪',
       ramTotal: 4,
@@ -71,15 +62,6 @@ export const config = {
       usecase: 'S3 Storage (Zipline)',
       honestNote: 'MinIO ist deprecated :(',
       tags: ['Docker', 'Garage', 'S3'],
-    },
-    'wings-1': {
-      location: 'Frankfurt 🇩🇪',
-      ramTotal: 8,
-      diskTotal: 200,
-      containers: 1,
-      usecase: 'Idle (Geldverbrenner)',
-      honestNote: 'Der kostet nur 69€/jahr (nice)',
-      tags: ['Docker', 'Wings'],
     },
     'wings-private': {
       location: 'Frankfurt 🇩🇪',
