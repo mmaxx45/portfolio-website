@@ -276,9 +276,9 @@ async function renderServers() {
           <div>
             <div class="flex items-center space-x-2">
               <span class="w-2.5 h-2.5 rounded-full ${statusDot} shrink-0"></span>
-              <h3 class="font-mono font-bold text-slate-100 text-sm sm:text-base">${server.role}</h3>
+              <h3 class="font-mono font-bold text-slate-100 text-sm sm:text-base">${escapeHtml(server.role)}</h3>
             </div>
-            <div class="text-xs text-slate-400 font-mono mt-0.5">${server.name} • <span class="text-slate-500">${server.location}</span></div>
+            <div class="text-xs text-slate-400 font-mono mt-0.5">${escapeHtml(server.name)} • <span class="text-slate-500">${escapeHtml(server.location)}</span></div>
           </div>
 
           <div class="px-2.5 py-1 rounded-full text-xs font-mono border ${statusColor} shrink-0">
@@ -309,14 +309,14 @@ async function renderServers() {
             <div class="h-1.5 w-full bg-slate-950 rounded-full overflow-hidden">
               <div class="h-full bg-gradient-to-r from-amber-500 to-orange-500 rounded-full transition-all duration-700" style="width: ${server.ramPercent}%"></div>
             </div>
-            <div class="text-[10px] text-slate-500 mt-0.5 truncate">${server.ramDetail}</div>
+            <div class="text-[10px] text-slate-500 mt-0.5 truncate">${escapeHtml(server.ramDetail)}</div>
           </div>
 
           <!-- Storage -->
           <div class="flex justify-between pt-1 text-slate-400">
             <span class="flex items-center space-x-1">
               <i data-lucide="hard-drive" class="w-3 text-cyan-400"></i>
-              <span>Disk: <strong class="text-cyan-300">${server.storageDetail || (server.storagePercent + '%')}</strong></span>
+              <span>Disk: <strong class="text-cyan-300">${escapeHtml(server.storageDetail || (server.storagePercent + '%'))}</strong></span>
             </span>
           </div>
 
@@ -325,12 +325,12 @@ async function renderServers() {
         <!-- Honest Note -->
         <div class="p-2.5 rounded bg-slate-950/70 border border-slate-800/60 text-xs font-mono text-slate-300 flex items-start space-x-2">
           <span class="text-amber-400">💡</span>
-          <span class="italic text-[11px] leading-relaxed">${server.honestNote}</span>
+          <span class="italic text-[11px] leading-relaxed">${escapeHtml(server.honestNote)}</span>
         </div>
 
         <!-- Badges -->
         <div class="flex flex-wrap gap-1.5 mt-3">
-          ${server.badges.map(b => `<span class="px-2 py-0.5 rounded bg-slate-800/80 text-slate-400 text-[10px] font-mono border border-slate-700/50">${b}</span>`).join('')}
+          ${server.badges.map(b => `<span class="px-2 py-0.5 rounded bg-slate-800/80 text-slate-400 text-[10px] font-mono border border-slate-700/50">${escapeHtml(b)}</span>`).join('')}
         </div>
       </div>
     `;
@@ -639,7 +639,7 @@ const commands = {
   },
   naas: async () => {
     const res = await fetchNaasReason(null, 'de');
-    return `<div class="text-amber-300">❌ <strong>No-as-a-Service German Fork (${res.source}):</strong> "${res.reason}"</div>`;
+    return `<div class="text-amber-300">❌ <strong>No-as-a-Service German Fork (${res.source}):</strong> "${escapeHtml(res.reason)}"</div>`;
   },
   whoami: () => `
     <div class="text-slate-300">
@@ -671,11 +671,11 @@ const commands = {
       const uptimeText = s.uptimeDays !== undefined ? ` | Uptime ${s.uptimeDays}d` : '';
       const cpuText = s.cpuPercent !== undefined ? `CPU ${s.cpuPercent}%` : '';
       const ramText = s.ramPercent !== undefined ? `RAM ${s.ramPercent}%` : '';
-      const diskText = s.storageDetail || (s.storagePercent !== undefined ? `Disk ${s.storagePercent}%` : '');
-      const locationText = s.location && s.location !== 'Unknown' ? `<span class="text-cyan-400">[${s.location}]</span> ` : '';
+      const diskText = s.storageDetail ? escapeHtml(s.storageDetail) : (s.storagePercent !== undefined ? `Disk ${s.storagePercent}%` : '');
+      const locationText = s.location && s.location !== 'Unknown' ? `<span class="text-cyan-400">[${escapeHtml(s.location)}]</span> ` : '';
       const metrics = [cpuText, ramText, diskText].filter(Boolean).join(' | ');
 
-      return `<div><span class="${colorClass} font-bold">${tag}</span> ${locationText}<span class="text-slate-200">${s.name}</span> <span class="text-slate-400">- ${metrics}${uptimeText}</span></div>`;
+      return `<div><span class="${colorClass} font-bold">${tag}</span> ${locationText}<span class="text-slate-200">${escapeHtml(s.name)}</span> <span class="text-slate-400">- ${metrics}${uptimeText}</span></div>`;
     });
 
     const header = `<div class="text-xs text-emerald-400 mb-1">● Live-Status via Beszel Hub (monitor.spaghetti.wtf, ${serverList.length} Nodes):</div>`;
