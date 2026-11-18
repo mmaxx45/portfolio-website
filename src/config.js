@@ -18,6 +18,15 @@ export const config = {
   // Per-server metadata (keyed by Beszel system name)
   // Enriches live Beszel data with location, RAM, disk size, containers, and usecase
   serverMeta: {
+    'crafty': {
+      location: 'Frankfurt 🇩🇪',
+      ramTotal: 32,
+      diskTotal: 200,
+      containers: 3,
+      usecase: 'Alter Minecraft Server (Crafty)',
+      honestNote: 'Kann den Deal nicht gehen lassen',
+      tags: ['Docker', 'Crafty', 'Java', 'Legacy'],
+    },
     'mail.mlehrke.de': {
       location: 'Nürnberg 🇩🇪',
       ramTotal: 8,

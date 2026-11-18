@@ -78,7 +78,7 @@ export const projects = [
     tech: ['Debian 12', 'Docker', 'Caddy', 'Beszel', 'Garage S3'],
     metrics: {
       sinn: '100%',
-      nodeCount: '7 Server',
+      nodeCount: '8 Server',
       uptimeGoal: '99.9%'
     },
     status: 'Produktiv im Einsatz'
