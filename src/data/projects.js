@@ -45,9 +45,9 @@ export const projects = [
     name: 'Rocketeer Bot',
     repo: 'mmaxx45/rocketeer-bot',
     url: 'https://github.com/mmaxx45/rocketeer-bot',
-    description: 'Discord Bot gegen lästige Crossposts mit automatischem Warnsystem und Crossposting Detection.',
+    description: 'Discord-Bot gegen Crossposts mit Warnsystem, Moderation und OAuth-Web-Dashboard. Läuft produktiv auf einem Community-Server mit ca. 8.000 Mitgliedern.',
     honestComment: 'Weil Ordnung auf dem Discord-Server wichtiger ist als Schlaf.',
-    tech: ['Python / JS', 'Discord API', 'Docker'],
+    tech: ['Node.js', 'discord.js v14', 'SQLite', 'OAuth'],
     metrics: {
       sinn: '88%',
       spammerAbwehr: '100%',
@@ -57,9 +57,9 @@ export const projects = [
   },
   {
     name: 'Zipline Selfhost',
-    repo: 'mmaxx45/zipline',
-    url: 'https://github.com/mmaxx45/zipline',
-    description: 'ShareX / File Upload Server mit benutzerdefinierten Domains, schnellem Setup und Caddy Integration.',
+    repo: 'diced/zipline',
+    url: 'https://github.com/diced/zipline',
+    description: 'Selbst gehostete Instanz von Zipline (Open Source von diced, nicht von mir entwickelt): ShareX / File Upload Server mit eigenen Domains und Caddy Integration.',
     honestComment: 'Wozu Google Drive bezahlen, wenn man einen eigenen Server mit 500GB SSD vollpacken kann?',
     tech: ['Node.js', 'Docker', 'Caddy', 'ShareX'],
     metrics: {
@@ -71,7 +71,6 @@ export const projects = [
   },
   {
     name: 'Homelab Infrastructure & Beszel Fleet',
-    repo: 'mmaxx45/homelab-fleet',
     url: 'https://github.com/mmaxx45',
     description: 'Verteilte Server-Infrastruktur mit Caddy Edge Proxies, Beszel Agent Monitoring und Garage S3 Storage.',
     honestComment: 'Wird bevorzugt um 2 Uhr nachts umgebaut, damit am nächsten Morgen wieder genau dasselbe wie vorher funktioniert.',

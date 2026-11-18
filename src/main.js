@@ -599,9 +599,9 @@ const commands = {
   lab: () => `
     <div class="text-emerald-300 space-y-1">
       <div>🚀 <strong>Mein Homelab & Self-Host Stack:</strong></div>
-      <div>  • Nodes: 9 aktive VPS & Bare-Metal Server</div>
+      <div>  • Nodes: 8 VPS</div>
       <div>  • Monitoring: Beszel Hub (monitor.spaghetti.wtf)</div>
-      <div>  • Services: Zipline, Gitea, Mail, Caddy Edge, Garage S3</div>
+      <div>  • Services: Zipline, Mail, Caddy Edge, Garage S3</div>
     </div>
   `,
   minecraft: () => `
