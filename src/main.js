@@ -606,16 +606,16 @@ const commands = {
       <div>  • Modpack: Privat und clientseitig selbst zusammengebaut. Läuft. Meistens.</div>
       <div>  • Rendering: Voxy für LOD, Sichtweite bis zum Horizont, RAM bis zum Anschlag</div>
       <div>  • Highlight: Ein Warden-Mobswitch mit ca. 70 Wardens pro Spieler. Bleibt so.</div>
-      <div>  • Versuche: <span class="text-amber-400">/gamemode creative</span> oder <span class="text-amber-400">/give coffee 64</span></div>
+      <div>  • Versuche: <span class="text-amber-400">/gamemode creative</span> oder <span class="text-amber-400">/give chips 64</span></div>
     </div>
   `,
   '/gamemode creative': () => {
     playMinecraftDing();
     return `<div class="text-emerald-400 font-bold">🎮 [Server]: Spielmodus wurde auf KREATIV gesetzt. Unendlich viel Server-RAM und Hetzner-Budget verfügbar!</div>`;
   },
-  '/give coffee 64': () => {
+  '/give chips 64': () => {
     playBeep(1000, 'triangle', 0.2);
-    return `<div class="text-amber-400">☕ [Inventory]: 64x Starker Espresso hinzugefügt. JVM Garbage Collection pausiert bis morgen früh.</div>`;
+    return `<div class="text-amber-400">🥔 [Server]: 32x Funny-Frisch Peperoni und 32x Currywurst Style ins Inventar gelegt. Tastatur ist jetzt offiziell fettig.</div>`;
   },
   naas: async () => {
     const res = await fetchNaasReason(null, 'de');
