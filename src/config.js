@@ -36,7 +36,7 @@ export const config = {
     },
     'media': {
       location: 'Eygelshoven 🇳🇱',
-      ramTotal: 32,
+      ramTotal: 96,
       containers: 12,
       usecase: 'Mediaserver',
       honestNote: 'Kampf den Streamingdiensten!',
