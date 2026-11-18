@@ -214,17 +214,17 @@
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
         <div class="p-4 rounded-xl bg-slate-900/40 border border-slate-800/80">
           <div class="text-xs font-mono text-slate-400">RAM an JVM & Dienste</div>
-          <div class="text-xl font-bold text-amber-400 font-mono mt-1">~38.4 GB</div>
+          <div id="totalRamStat" class="text-xl font-bold text-amber-400 font-mono mt-1">~38.4 GB</div>
           <div class="text-[11px] text-slate-500 mt-0.5">Garbage Collector schwitzt</div>
         </div>
         <div class="p-4 rounded-xl bg-slate-900/40 border border-slate-800/80">
           <div class="text-xs font-mono text-slate-400">Docker Container Status</div>
-          <div class="text-xl font-bold text-cyan-400 font-mono mt-1">27 Idle / 2 Aktiv</div>
+          <div id="dockerContainersStat" class="text-xl font-bold text-cyan-400 font-mono mt-1">27 Idle / 2 Aktiv</div>
           <div class="text-[11px] text-slate-500 mt-0.5">"Wird bestimmt noch gebraucht"</div>
         </div>
         <div class="p-4 rounded-xl bg-slate-900/40 border border-slate-800/80">
           <div class="text-xs font-mono text-slate-400">Mittlere Uptime</div>
-          <div class="text-xl font-bold text-emerald-400 font-mono mt-1">200+ Tage</div>
+          <div id="avgUptimeStat" class="text-xl font-bold text-emerald-400 font-mono mt-1">200+ Tage</div>
           <div class="text-[11px] text-slate-500 mt-0.5">Angst vor `systemctl restart`</div>
         </div>
         <div class="p-4 rounded-xl bg-slate-900/40 border border-slate-800/80">

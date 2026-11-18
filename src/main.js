@@ -31,7 +31,8 @@ import {
   Check,
   Cpu,
   Pickaxe,
-  Box
+  Box,
+  HardDrive
 } from 'lucide';
 import confetti from 'canvas-confetti';
 
@@ -77,7 +78,8 @@ function initIcons() {
       Check,
       Cpu,
       Pickaxe,
-      Box
+      Box,
+      HardDrive
     }
   });
 }
@@ -239,7 +241,7 @@ async function renderServers() {
       totalRamEl.textContent = `~${totalRamUsed.toFixed(1)} GB / ${totalRamCap} GB`;
     }
     if (dockerStatEl) {
-      dockerStatEl.textContent = `${totalContainers} Container (${totalContainers - 2} Idle / 2 Aktiv)`;
+      dockerStatEl.textContent = `${totalContainers} Container`;
     }
     if (avgUptimeEl) {
       avgUptimeEl.textContent = `${avgUptime}+ Tage`;
@@ -265,7 +267,7 @@ async function renderServers() {
           </div>
 
           <div class="px-2.5 py-1 rounded-full text-xs font-mono border ${statusColor} shrink-0">
-            ${server.uptimePercent}% Uptime
+            ${isUp ? `Online seit ${server.uptimeDays}d` : 'Offline'}
           </div>
         </div>
 
@@ -295,13 +297,12 @@ async function renderServers() {
             <div class="text-[10px] text-slate-500 mt-0.5 truncate">${server.ramDetail}</div>
           </div>
 
-          <!-- Storage / Uptime -->
+          <!-- Storage -->
           <div class="flex justify-between pt-1 text-slate-400">
             <span class="flex items-center space-x-1">
               <i data-lucide="hard-drive" class="w-3 text-cyan-400"></i>
               <span>Disk: <strong class="text-cyan-300">${server.storageDetail || (server.storagePercent + '%')}</strong></span>
             </span>
-            <span>Uptime: <strong class="text-slate-300">${server.uptimeDays}d</strong></span>
           </div>
 
         </div>
@@ -649,7 +650,7 @@ const commands = {
       const tag = isUp ? '[OK]' : (isWarn ? '[WARN]' : '[DOWN]');
       const colorClass = isUp ? 'text-emerald-400' : (isWarn ? 'text-amber-400' : 'text-red-400');
       const pingText = s.pingMs !== undefined ? ` | Ping ${s.pingMs}ms` : '';
-      const uptimeText = s.uptimePercent !== undefined ? ` | Uptime ${s.uptimePercent}%` : (s.uptimeDays ? ` | Uptime ${s.uptimeDays}d` : '');
+      const uptimeText = s.uptimeDays !== undefined ? ` | Uptime ${s.uptimeDays}d` : '';
       const cpuText = s.cpuPercent !== undefined ? `CPU ${s.cpuPercent}%` : '';
       const ramText = s.ramPercent !== undefined ? `RAM ${s.ramPercent}%` : '';
       const diskText = s.storageDetail || (s.storagePercent !== undefined ? `Disk ${s.storagePercent}%` : '');

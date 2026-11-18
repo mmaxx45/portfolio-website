@@ -121,8 +121,6 @@ function parseBeszelData(items) {
     // Agent version (info.v)
     const agentVersion = typeof info.v === 'string' ? info.v : null;
 
-    const uptimePercent = isUp ? 99.9 : (isWarn ? 95.0 : 0.0);
-
     const displayName = sanitizeName(sys.name || `Node #${index + 1}`);
 
     // Location and usecase from config metadata
@@ -154,7 +152,6 @@ function parseBeszelData(items) {
       role,
       location,
       status: isUp ? 'up' : (isWarn ? 'warning' : 'down'),
-      uptimePercent,
       cpuPercent: cpu,
       ramPercent: ram,
       ramDetail,
