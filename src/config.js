@@ -21,7 +21,6 @@ export const config = {
     'crafty': {
       location: 'Frankfurt 🇩🇪',
       ramTotal: 32,
-      diskTotal: 200,
       containers: 3,
       usecase: 'Alter Minecraft Server (Crafty)',
       honestNote: 'Kann den Deal nicht gehen lassen',
@@ -30,7 +29,6 @@ export const config = {
     'mail.mlehrke.de': {
       location: 'Nürnberg 🇩🇪',
       ramTotal: 8,
-      diskTotal: 128,
       containers: 4,
       usecase: 'Mail Server',
       honestNote: 'Mein absolutes Heiligtum',
@@ -39,7 +37,6 @@ export const config = {
     'media': {
       location: 'Eygelshoven 🇳🇱',
       ramTotal: 32,
-      diskTotal: 2250,
       containers: 12,
       usecase: 'Mediaserver',
       honestNote: 'Kampf den Streamingdiensten!',
@@ -48,7 +45,6 @@ export const config = {
     'minecraft': {
       location: 'Frankfurt 🇩🇪',
       ramTotal: 8,
-      diskTotal: 250,
       containers: 1,
       usecase: 'Minecraft SMP (Fabric)',
       honestNote: 'Java gönnt sich Dickste',
@@ -57,7 +53,6 @@ export const config = {
     'portfolio': {
       location: 'Berlin/TXL 🇩🇪',
       ramTotal: 4,
-      diskTotal: 240,
       containers: 3,
       usecase: 'This Website & more',
       honestNote: 'Joa, Titel.',
@@ -66,7 +61,6 @@ export const config = {
     's3': {
       location: 'Düsseldorf 🇩🇪',
       ramTotal: 8,
-      diskTotal: 2030,
       containers: 2,
       usecase: 'S3 Storage (Zipline)',
       honestNote: 'MinIO ist deprecated :(',
@@ -75,7 +69,6 @@ export const config = {
     'wings-private': {
       location: 'Frankfurt 🇩🇪',
       ramTotal: 8,
-      diskTotal: 240,
       containers: 1,
       usecase: 'Idle (Geldverbrenner)',
       honestNote: '2€ im Monat, da kannste nich meckern, wa',
@@ -84,7 +77,6 @@ export const config = {
     'zipline': {
       location: 'Nürnberg 🇩🇪',
       ramTotal: 4,
-      diskTotal: 30,
       containers: 1,
       usecase: 'Zipline',
       honestNote: 'Cooles File Upload Tool.',

@@ -85,13 +85,25 @@ function parseBeszelData(items) {
     const ramUsedGB = Math.round((ramTotalGB * ram) / 100 * 10) / 10;
     const ramDetail = `${ramUsedGB} / ${ramTotalGB} GB (${ram}%)`;
 
-    // Disk usage percentage (info.dp) + total disk from config metadata
-    const diskPercent = typeof info.dp === 'number' ? Math.round(info.dp) : 0;
+    // Fallback: disk usage percentage (info.dp, root fs only) + optional total from config metadata
+    let diskPercent = typeof info.dp === 'number' ? Math.round(info.dp) : 0;
     const diskTotalGB = meta.diskTotal || null;
     let diskDetail = `${diskPercent}%`;
     if (diskTotalGB) {
       const usedGB = Math.round((diskTotalGB * diskPercent) / 100);
       diskDetail = `${usedGB} / ${diskTotalGB} GB`;
+    }
+
+    // Live disk totals in GB (root + extra disks): { d: total, du: used }; may be null or a JSON string
+    let disk = sys.disk;
+    if (typeof disk === 'string') {
+      try { disk = JSON.parse(disk); } catch { disk = null; }
+    }
+    if (disk && disk.d > 0 && typeof disk.du === 'number') {
+      diskPercent = Math.round((disk.du / disk.d) * 100);
+      diskDetail = disk.d >= 1000
+        ? `${(disk.du / 1000).toFixed(1)} / ${(disk.d / 1000).toFixed(1)} TB`
+        : `${Math.round(disk.du)} / ${Math.round(disk.d)} GB`;
     }
 
     // Uptime in seconds (info.u)
