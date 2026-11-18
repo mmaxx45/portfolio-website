@@ -1,5 +1,4 @@
 import { config } from '../config.js';
-import { getSimulatedServerStats } from './uptimeKuma.js';
 
 /**
  * Beszel Hub Service (PocketBase-backed API)
@@ -43,9 +42,8 @@ function formatGB(gb) {
 }
 
 export async function fetchBeszelStats() {
-  if (!config.beszel?.baseUrl) {
-    return getSimulatedServerStats();
-  }
+  // Returns [] when the hub is unreachable or has no systems; the UI shows a hint instead of fake data.
+  if (!config.beszel?.baseUrl) return [];
 
   try {
     const baseUrl = config.beszel.baseUrl.replace(/\/$/, '');
@@ -62,13 +60,12 @@ export async function fetchBeszelStats() {
 
     if (items.length === 0) {
       console.warn('[Beszel] API returned 0 items. Make sure the systems_public view collection exists with public List/View rules.');
-      return getSimulatedServerStats();
     }
 
     return parseBeszelData(items);
   } catch (err) {
-    console.warn('[Beszel] Failed to fetch live metrics from Beszel Hub, using fallback:', err.message);
-    return getSimulatedServerStats();
+    console.warn('[Beszel] Failed to fetch live metrics from Beszel Hub:', err.message);
+    return [];
   }
 }
 
@@ -165,11 +162,4 @@ function parseBeszelData(items) {
       badges
     };
   });
-}
-
-export async function fetchServerStats() {
-  if (config.provider === 'beszel' || config.useBeszel) {
-    return fetchBeszelStats();
-  }
-  return getSimulatedServerStats();
 }

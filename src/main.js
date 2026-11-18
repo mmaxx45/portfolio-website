@@ -37,7 +37,7 @@ import {
 import confetti from 'canvas-confetti';
 
 import { config } from './config.js';
-import { fetchServerStats } from './services/serverService.js';
+import { fetchBeszelStats } from './services/beszel.js';
 import { fetchNaasReason } from './services/naasService.js';
 import { projects } from './data/projects.js';
 import { techStack } from './data/techStack.js';
@@ -224,7 +224,7 @@ async function renderServers() {
   const container = document.getElementById('serversGrid');
   if (!container) return;
 
-  currentServers = await fetchServerStats();
+  currentServers = await fetchBeszelStats();
 
   // Dynamically update top stats cards if present
   const totalRamEl = document.getElementById('totalRamStat');
@@ -246,6 +246,21 @@ async function renderServers() {
     if (avgUptimeEl) {
       avgUptimeEl.textContent = `${avgUptime}+ Tage`;
     }
+  } else {
+    [totalRamEl, dockerStatEl, avgUptimeEl].forEach(el => { if (el) el.textContent = '–'; });
+    container.innerHTML = `
+      <div class="rounded-xl bg-[#0f1422] border border-slate-800 p-5 md:col-span-2">
+        <div class="flex items-center space-x-2 mb-3">
+          <span class="w-2.5 h-2.5 rounded-full bg-amber-400 shadow-[0_0_8px_#f59e0b] shrink-0"></span>
+          <h3 class="font-mono font-bold text-slate-100 text-sm sm:text-base">Monitoring gerade nicht erreichbar.</h3>
+        </div>
+        <div class="p-2.5 rounded bg-slate-950/70 border border-slate-800/60 text-xs font-mono text-slate-300 flex items-start space-x-2">
+          <span class="text-amber-400">💡</span>
+          <span class="italic text-[11px] leading-relaxed">Vermutlich reboote ich gerade irgendwas.</span>
+        </div>
+      </div>
+    `;
+    return;
   }
 
   container.innerHTML = currentServers.map(server => {
@@ -642,10 +657,10 @@ const commands = {
   server: async () => {
     const serverList = (currentServers && currentServers.length > 0)
       ? currentServers
-      : await fetchServerStats();
+      : await fetchBeszelStats();
 
     if (!serverList || serverList.length === 0) {
-      return `<div class="text-red-400">Keine Serverdaten verfügbar.</div>`;
+      return `<div class="text-amber-400">Monitoring gerade nicht erreichbar. Vermutlich reboote ich gerade irgendwas.</div>`;
     }
 
     const lines = serverList.map(s => {
@@ -653,7 +668,6 @@ const commands = {
       const isWarn = s.status === 'warning';
       const tag = isUp ? '[OK]' : (isWarn ? '[WARN]' : '[DOWN]');
       const colorClass = isUp ? 'text-emerald-400' : (isWarn ? 'text-amber-400' : 'text-red-400');
-      const pingText = s.pingMs !== undefined ? ` | Ping ${s.pingMs}ms` : '';
       const uptimeText = s.uptimeDays !== undefined ? ` | Uptime ${s.uptimeDays}d` : '';
       const cpuText = s.cpuPercent !== undefined ? `CPU ${s.cpuPercent}%` : '';
       const ramText = s.ramPercent !== undefined ? `RAM ${s.ramPercent}%` : '';
@@ -661,16 +675,10 @@ const commands = {
       const locationText = s.location && s.location !== 'Unknown' ? `<span class="text-cyan-400">[${s.location}]</span> ` : '';
       const metrics = [cpuText, ramText, diskText].filter(Boolean).join(' | ');
 
-      return `<div><span class="${colorClass} font-bold">${tag}</span> ${locationText}<span class="text-slate-200">${s.name}</span> <span class="text-slate-400">- ${metrics}${pingText}${uptimeText}</span></div>`;
+      return `<div><span class="${colorClass} font-bold">${tag}</span> ${locationText}<span class="text-slate-200">${s.name}</span> <span class="text-slate-400">- ${metrics}${uptimeText}</span></div>`;
     });
 
-    const isBeszel = config.provider === 'beszel' || config.useBeszel;
-    const isKuma = config.provider === 'kuma' || config.useUptimeKuma;
-    const header = isBeszel
-      ? `<div class="text-xs text-emerald-400 mb-1">● Live-Status via Beszel Hub (monitor.spaghetti.wtf, ${serverList.length} Nodes):</div>`
-      : (isKuma
-        ? `<div class="text-xs text-emerald-400 mb-1">● Live-Status via Uptime Kuma API (${serverList.length} Nodes):</div>`
-        : `<div class="text-xs text-cyan-300 mb-1">⚡ Server Fleet Status:</div>`);
+    const header = `<div class="text-xs text-emerald-400 mb-1">● Live-Status via Beszel Hub (monitor.spaghetti.wtf, ${serverList.length} Nodes):</div>`;
 
     return `
       <div class="space-y-1 font-mono text-xs sm:text-sm">
