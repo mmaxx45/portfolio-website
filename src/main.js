@@ -387,7 +387,11 @@ if (deployContainerBtn) {
     }
 
     if (containersDeployedEl) containersDeployedEl.textContent = `${containersCount}`;
-    if (ramAllocatedEl) ramAllocatedEl.textContent = `${ramMB} MB 🚀`;
+    if (ramAllocatedEl) ramAllocatedEl.textContent = `${ramMB} MB`;
+    if (containersCount === 50) {
+      const descEl = document.getElementById('deployerDescription');
+      if (descEl) descEl.textContent = 'Okay, du hast jetzt 50 Container deployt, die es nicht gibt. Mein echter Server ist trotzdem neidisch.';
+    }
   });
 }
 
