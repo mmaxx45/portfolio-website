@@ -38,6 +38,10 @@ function sanitizeName(name) {
   return name.replace(/\b(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\b/g, '[REDACTED]');
 }
 
+function formatGB(gb) {
+  return Math.round(gb) < 1000 ? `${Math.round(gb)} GB` : `${(gb / 1000).toFixed(1)} TB`;
+}
+
 export async function fetchBeszelStats() {
   if (!config.beszel?.baseUrl) {
     return getSimulatedServerStats();
@@ -101,9 +105,7 @@ function parseBeszelData(items) {
     }
     if (disk && disk.d > 0 && typeof disk.du === 'number') {
       diskPercent = Math.round((disk.du / disk.d) * 100);
-      diskDetail = disk.d >= 1000
-        ? `${(disk.du / 1000).toFixed(1)} / ${(disk.d / 1000).toFixed(1)} TB`
-        : `${Math.round(disk.du)} / ${Math.round(disk.d)} GB`;
+      diskDetail = `${formatGB(disk.du)} / ${formatGB(disk.d)}`;
     }
 
     // Uptime in seconds (info.u)
